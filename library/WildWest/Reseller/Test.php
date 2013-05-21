@@ -10,21 +10,20 @@ $shopper = new WildWest_Reseller_Shopper();
 $shopper->acceptOrderTOS ='';
 $shopper->user ='816376';
 $shopper->pwd ='veZa3HE7';
-$shopper->firstname ='Brad';
-$shopper->lastname ='OTEReseller';
-$shopper->phone ='4805058800';
 
 $contactinfor = new WildWest_Reseller_ContactInfo();
 $contactinfor->fname = "Brad";
 $contactinfor->lname = "OTEReseller";
+$contactinfor->org = "Wild West Reseller";
 $contactinfor->email = "info@world-link-llc.com";
-$contactinfor->sa1 = "14455 North Hayden Road";
-$contactinfor->sa2 = "";
+$contactinfor->sa1 = "14455 North";
+$contactinfor->sa2 = "Hayden Road";
+$contactinfor->city = "Scottsdale";
+$contactinfor->sp = "Arizona";
 $contactinfor->pc = "85260";
 $contactinfor->cc = "United States";
 $contactinfor->phone = "4805058800";
-$contactinfor->city = "Scottsdale";
-$contactinfor->fax = "";
+$contactinfor->fax = "4805058800";
 
 
 $items = array ();
@@ -40,17 +39,16 @@ $reg->order = $orderItem;
 $reg->sld = "example";
 $reg->tld = "us";
 $reg->period = 2;
-$reg->registrant = 'registrant';
-$reg->admin = 'registrant';
-$reg->billing = 'registrant';
-$reg->tech = 'registrant';
-$reg->period = 2;
 $reg->registrant = $contactinfor;
+$reg->admin = $contactinfor;
+$reg->billing = $contactinfor;
+$reg->tech = $contactinfor;
+$reg->period = 2;
 
 $items[]=$reg;
 
 $items[] =  $orderItem;
-/*var_dump($items);
+var_dump($items);
 var_dump($shopper);
 //exit;*/
 $result = $client->OrderDomains($shopper,$items);
